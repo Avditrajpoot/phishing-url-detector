@@ -1,1 +1,33 @@
+# Phishing URL Detector
 
+## Project Overview
+This project is a Phishing URL Detection system. It uses a trained Decision Tree model to classify URLs as either **legitimate** or **phishing**. The goal is to help users identify malicious URLs before they click on them.
+
+---
+
+## Repository Contents
+- `url_phish_dt.pkl` – Trained Decision Tree model (serialized using Python's `pickle` library)
+- `data/` – Dataset used to train and test the model
+- `notebooks/` – Jupyter notebooks for training and evaluating the model
+- `requirements.txt` – Python dependencies for running the project
+- `README.md` – This file
+
+---
+
+## About `url_phish_dt.pkl`
+The file `url_phish_dt.pkl` contains the trained model for detecting phishing URLs.  
+> Note: This is a serialized file and cannot be opened or read directly on GitHub.  
+
+You can load and use the model in Python like this:
+
+```python
+import pickle
+
+# Load the model
+with open('url_phish_dt.pkl', 'rb') as file:
+    model = pickle.load(file)
+
+# Predict a URL
+url = ["http://example.com"]
+prediction = model.predict(url)
+print(prediction)  # Output: ['legitimate'] or ['phishing']
